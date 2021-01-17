@@ -1,10 +1,29 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Car Table</title>
 </head>
 <body>
+<h1></h1>
 
+<table border="1">
+    <tr>
+        <th>Brand</th>
+        <th>Model</th>
+        <th>Age</th>
+    </tr>
+
+    <tr th:each="cars : ${cars}">
+        <td th:utext="${cars.brand}">Brand</td>
+        <td th:utext="${cars.model}">Model</td>
+        <td th:utext="${cars.age}">Age</td>
+
+    </tr>
+
+</table>
+<a href="/">
+    Hello Controller
+</a>
 </body>
 </html>
