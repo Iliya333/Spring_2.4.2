@@ -18,7 +18,6 @@ public class ServiceCar {
     Car car5 = new Car("Toyota", "Camry", 2019);
 
 
-
     public List<Car> getCarList() {
         List<Car> carList = new ArrayList<>();
         carList.add(car1);
@@ -36,12 +35,11 @@ public class ServiceCar {
         carList.add(car3);
         carList.add(car4);
         carList.add(car5);
-        if (count < 1 ||count >= 5 ) {
+        if (count < 1 || count >= 5) {
             return carList;
         } else
             return carList.stream().limit(count).collect(Collectors.toList());
     }
-
 
 
 }

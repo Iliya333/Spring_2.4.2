@@ -9,11 +9,9 @@ import service.ServiceCar;
 @ComponentScan("java")
 public class CarConfig {
     @Bean
-    public ServiceCar serviceCar(){
+    public ServiceCar serviceCar() {
         return new ServiceCar();
     }
-
-
 
 
 }
