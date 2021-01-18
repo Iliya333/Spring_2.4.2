@@ -2,6 +2,8 @@ package service;
 
 import model.Car;
 import org.springframework.stereotype.Service;
+import org.springframework.ui.ModelMap;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -42,4 +44,14 @@ public class ServiceCar {
     }
 
 
+    public String getCarCountOfModelMap(Integer count, ModelMap modelMap) {
+        if (count != null) {
+            List<Car> cars = getCarOfNumber(count);
+            modelMap.addAttribute("cars", cars);
+            return "cars";
+        } else modelMap.addAttribute("cars", getCarList());
+        return "cars";
+
+
+    }
 }
