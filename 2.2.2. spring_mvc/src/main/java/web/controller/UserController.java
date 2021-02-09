@@ -7,7 +7,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 import web.model.User;
-import web.servise.UserService;
+import web.service.UserService;
 
 
 import java.util.List;
@@ -41,14 +41,14 @@ public class UserController {
         return "redirect:/users";
     }
 
-    @GetMapping("delete/{id}")
-    public String deleteUser(@PathVariable("id") Integer  id) {
+    @GetMapping("delete")
+    public String deleteUser(@RequestParam("id") Integer  id) {
         userService.deleteById(id);
         return "redirect:/users";
     }
 
-    @GetMapping("update/{id}")
-    public ModelAndView updateUserForm(@PathVariable("id") Integer  id, Model model) {
+    @GetMapping("update")
+    public ModelAndView updateUserForm(@RequestParam("id") Integer  id, Model model) {
         ModelAndView modelAndView = new ModelAndView();
         User user = userService.getUserId(id);
         model.addAttribute("user", user);
