@@ -11,7 +11,7 @@ public class User {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id;
+    private Long id;
 
     @Column(name = "first_Name")
     private String firstName;
@@ -20,7 +20,7 @@ public class User {
     private String lastName;
 
     @Column(name = "Age")
-    private byte age;
+    private Integer age;
 
 
     @Column(name = "email")
@@ -30,26 +30,26 @@ public class User {
 
     }
 
-    public User(String firstName, String lastName, byte age, String email) {
+    public User(String firstName, String lastName, Integer age, String email) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.age = age;
         this.email = email;
     }
 
-    public byte getAge() {
+    public Integer getAge() {
         return age;
     }
 
-    public void setAge(byte age) {
+    public void setAge(Integer age) {
         this.age = age;
     }
 
-    public Integer getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
