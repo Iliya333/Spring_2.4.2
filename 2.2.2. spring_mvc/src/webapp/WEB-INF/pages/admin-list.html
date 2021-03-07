@@ -12,17 +12,19 @@
         .orange { background: #F7941E; }
     </style>
     <meta charset="UTF-8">
-    <title>Table users</title>
+    <title>Table users </title>
 
 </head>
 <body>
 <div th:switch="${users}">
     <h2 th:case="null">No users found!</h2>
     <div th:case="*">
-        <h2 style="border: cornflowerblue">Users</h2>
+        <h2 style="border: cornflowerblue">Admin</h2>
         <table border="1">
             <colgroup>
                 <col style="background:Khaki"><!-- С помощью этой конструкции задаем цвет фона для первых двух столбцов таблицы-->
+                <col style="background-color:Khaki"><!-- Задаем цвет фона для следующего (одного) столбца таблицы-->
+                <col style="background-color:Khaki"><!-- Задаем цвет фона для следующего (одного) столбца таблицы-->
                 <col style="background-color:Khaki"><!-- Задаем цвет фона для следующего (одного) столбца таблицы-->
                 <col style="background-color:Khaki"><!-- Задаем цвет фона для следующего (одного) столбца таблицы-->
                 <col style="background-color:Khaki"><!-- Задаем цвет фона для следующего (одного) столбца таблицы-->
@@ -37,6 +39,8 @@
                 <th>Last Name</th>
                 <th>Age</th>
                 <th>E-Mail</th>
+                <th>Password</th>
+                <th>Roles</th>
                 <th>Edit</th>
                 <th>Delete</th>
             </tr>
@@ -48,7 +52,9 @@
                 <td th:text="${user.lastName}"></td>
                 <td th:text="${user.age}"></td>
                 <td th:text="${user.email}"></td>
-                <td><button class="orange"><a th:href="@{update (id=${user.id})}">Edit</a></button></td>
+                <td th:text="${user.password}"></td>
+                <td th:text="${user.roles}"></td>
+                <td><button class="orange"><a th:href="@{update/{id}(id=${user.id})}">Edit</a></button></td>
                 <td><button class="red"> <a th:href="@{delete (id=${user.id})}">Delete</a></button></td>
             </tr>
 
@@ -57,6 +63,7 @@
     <br>
     <br>
    <button class="green"><a href="/create">New user</a></button>
+    <button class="green"><a th:href="@{/logout}">Logout</a></button>
 </div>
 </body>
 </html>
